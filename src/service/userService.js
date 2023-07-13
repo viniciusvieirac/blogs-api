@@ -1,6 +1,6 @@
 const { User } = require('../models');
 
-const createUser = ({ username, password }) => User.create({ username, password });
+const createUser = ({ displayName, email, password, image }) => User.create({ displayName, email, password, image });
 
 const getUsers = () => User.findAll();
 

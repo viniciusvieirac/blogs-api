@@ -1,7 +1,7 @@
 const { UserService } = require('../service');
 const { createToken } = require('../auth/authFunctions');
 
-const isBodyValid = (username, password) => username && password;
+const isBodyValid = (email, password) => email && password;
 
 const login = async (req, res) => {
     const { email, password } = req.body;
