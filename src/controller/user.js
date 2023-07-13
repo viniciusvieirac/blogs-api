@@ -1,6 +1,20 @@
 const { UserService } = require('../service');
 const { createToken } = require('../auth/authFunctions');
 
+const getAllUsers = async (req, res) => {
+    try {
+        const users = await UserService.getUsers();
+        const usersWithoutPassword = users.map((user) => {
+            const { password, ...userWithoutPassword } = user.dataValues;
+            return userWithoutPassword;
+        });
+
+        res.status(200).json(usersWithoutPassword);
+    } catch (error) {
+        console.log(error.message);
+    }
+};
+
 const createUser = async (req, res) => {
     try {
         const { displayName, email, password, image } = req.body;
@@ -21,4 +35,7 @@ const createUser = async (req, res) => {
     }
 };
 
-module.exports = { createUser };
+module.exports = {
+    getAllUsers,
+    createUser,
+};
