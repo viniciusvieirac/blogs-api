@@ -20,12 +20,11 @@ const getUserById = async (req, res) => {
     const user = await UserService.getByUserId(id);
     if (!user) {
         return res.status(404).json({ message: 'User does not exist' });
-
     }
     const { password: _password, ...userWithoutPassword } = user.dataValues;
 
     res.status(200).json(userWithoutPassword);
-}
+};
 
 const createUser = async (req, res) => {
     try {
