@@ -5,7 +5,8 @@ const validateJWT = require('../middleware/validateJWT');
 
 const router = express.Router();
 
-router.get('/', validateJWT, user.getAllUsers);
+router.get('/', validateJWT, user.createUser);
+router.get('/:id', validateJWT, user.getUserById);
 router.post('/', validateUser, validateEmail, user.createUser);
 
 module.exports = router;
