@@ -1,5 +1,5 @@
 const express = require('express');
-const category = require('../controller/category')
+const category = require('../controller/category');
 const { validateJWTWithBearer, validateJWT } = require('../middleware/validateJWT');
 
 const router = express.Router();

@@ -14,7 +14,6 @@ const getAllCategories = async () => {
     return categories;
 };
 
-
 module.exports = {
     createCategory,
     getAllCategories,
